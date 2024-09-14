@@ -7,7 +7,7 @@ import com.example.marinepath.entity.Enum.AccountStatusEnum;
 import jakarta.persistence.*;
 
 import jakarta.validation.constraints.Email;
-import lombok.Data;
+import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -18,6 +18,8 @@ import java.util.Collection;
 import java.util.Collections;
 
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "account")
 public class Account implements UserDetails {
