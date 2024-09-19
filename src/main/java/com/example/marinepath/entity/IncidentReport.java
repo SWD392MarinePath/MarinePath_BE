@@ -19,8 +19,8 @@ public class IncidentReport {
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "journey_id")
-    private Journey journey;
+    @JoinColumn(name = "trip_id")
+    private Trip trip;
 
     @Column(nullable = false)
     private String description;

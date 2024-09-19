@@ -20,6 +20,10 @@ public class Ship {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    @ManyToOne
+    @JoinColumn(name = "company_id", nullable = false)
+    private Company company;
+
     @Column(name = "ship_code", unique = true, nullable = false)
     private String shipCode;
 
@@ -52,7 +56,5 @@ public class Ship {
     @Column(name = "is_deleted",nullable = false)
     private Boolean isDeleted;
 
-    @OneToMany(mappedBy = "ship")
-    private List<Journey> journeys;
 
 }

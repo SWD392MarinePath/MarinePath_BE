@@ -1,17 +1,14 @@
 package com.example.marinepath.entity;
 
-import com.example.marinepath.entity.Enum.Account.AccountGenderEnum;
-import com.example.marinepath.entity.Enum.Account.AccountProviderEnum;
-import com.example.marinepath.entity.Enum.Account.AccountRoleEnum;
-import com.example.marinepath.entity.Enum.Account.AccountStatusEnum;
+import com.example.marinepath.entity.Enum.Customer.*;
 import jakarta.persistence.*;
-
 import jakarta.validation.constraints.Email;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
 
 import java.time.LocalDateTime;
 import java.util.Collection;
@@ -21,8 +18,8 @@ import java.util.Collections;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "account")
-public class Account implements UserDetails {
+@Table(name = "customer")
+public class Customer implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,7 +37,7 @@ public class Account implements UserDetails {
 
     @Column(nullable = true)
     @Enumerated(EnumType.STRING)
-    private AccountGenderEnum gender;
+    private CustomerGenderEnum gender;
 
     @Column
     private String picture;
@@ -50,15 +47,15 @@ public class Account implements UserDetails {
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private AccountRoleEnum role;
+    private CustomerRoleEnum role;
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
-    private AccountProviderEnum provider;
+    private CustomerProviderEnum provider;
 
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
-    private AccountStatusEnum status;
+    private CustomerStatusEnum status;
 
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
@@ -84,7 +81,7 @@ public Collection<? extends GrantedAuthority> getAuthorities() {
     @Transient
     @Override
     public boolean isAccountNonLocked() {
-        return this.status != AccountStatusEnum.BLOCKED;
+        return this.status != CustomerStatusEnum.BLOCKED;
     }
 
     @Transient
@@ -96,6 +93,6 @@ public Collection<? extends GrantedAuthority> getAuthorities() {
     @Transient
     @Override
     public boolean isEnabled() {
-        return this.status == AccountStatusEnum.VERIFIED;
+        return this.status == CustomerStatusEnum.VERIFIED;
     }
 }

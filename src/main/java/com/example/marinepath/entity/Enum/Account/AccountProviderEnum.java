@@ -1,4 +1,4 @@
-package com.example.marinepath.entity.Enum;
+package com.example.marinepath.entity.Enum.Account;
 
 public enum AccountProviderEnum {
     LOCAL,

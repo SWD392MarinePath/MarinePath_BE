@@ -1,6 +1,6 @@
 package com.example.marinepath.entity.Enum;
 
-public enum JourneyDetailStatusEnum {
+public enum TripSegmentStatusEnum {
     PENDING,      // Đang chờ
     ARRIVED,      // Đã đến
     DEPARTED,     // Đã rời cảng

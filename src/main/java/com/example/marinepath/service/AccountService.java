@@ -7,8 +7,8 @@ import com.example.marinepath.dto.Auth.Login.LoginRequestDTO;
 import com.example.marinepath.dto.Auth.Login.LoginResponseDTO;
 import com.example.marinepath.dto.Auth.Register.RegisterRequestDTO;
 import com.example.marinepath.entity.Account;
-import com.example.marinepath.entity.Enum.AccountProviderEnum;
-import com.example.marinepath.entity.Enum.AccountStatusEnum;
+import com.example.marinepath.entity.Enum.Account.AccountProviderEnum;
+import com.example.marinepath.entity.Enum.Account.AccountStatusEnum;
 import com.example.marinepath.exception.Account.AccountException;
 import com.example.marinepath.exception.ErrorCode;
 import com.example.marinepath.exception.Token.InvalidToken;
@@ -80,7 +80,7 @@ public class AccountService {
 
     public ApiResponse<String> verifyAccountByToken(String token) {
         try {
-            String email = jwtTokenUtil.getEmailFromToken(token); // Sửa tên phương thức
+            String email = jwtTokenUtil.getEmailFromToken(token);
             verifyAccountByEmail(email);
             return new ApiResponse<>(200, "Account verification successful.", null);
         } catch (InvalidToken | TokenExpiredException e) {
@@ -115,7 +115,7 @@ public class AccountService {
 
     public ApiResponse<String> resetPassword(String token, String newPassword) {
         try {
-            String email = jwtTokenUtil.getEmailFromToken(token); // Sửa tên phương thức
+            String email = jwtTokenUtil.getEmailFromToken(token);
             Account account = accountRepository.findByEmail(email)
                     .orElseThrow(() -> new AccountException("User not found with email: " + email, ErrorCode.USER_NOT_FOUND));
 

@@ -1,9 +1,9 @@
 package com.example.marinepath.config;
 
 import com.example.marinepath.entity.*;
-import com.example.marinepath.entity.Enum.AccountProviderEnum;
-import com.example.marinepath.entity.Enum.AccountRoleEnum;
-import com.example.marinepath.entity.Enum.AccountStatusEnum;
+import com.example.marinepath.entity.Enum.Account.AccountProviderEnum;
+import com.example.marinepath.entity.Enum.Account.AccountRoleEnum;
+import com.example.marinepath.entity.Enum.Account.AccountStatusEnum;
 import com.example.marinepath.repository.AccountRepository;
 import com.example.marinepath.security.JwtTokenUtil;
 import com.fasterxml.jackson.databind.ObjectMapper;

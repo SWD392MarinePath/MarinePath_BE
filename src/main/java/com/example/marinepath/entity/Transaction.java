@@ -5,27 +5,32 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "container")
-public class Container {
+@Table(name = "transaction")
+public class Transaction {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToOne
-    @JoinColumn(name = "port_id", nullable = false)
-    private Port port;
-
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "order_id", nullable = false)
     private Order order;
 
     @Column(nullable = false)
-    private Float weight;
+    private String name;
+
+    @Column(nullable = false)
+    private LocalDateTime issuedAt;
+
+    @Column(nullable = false)
+    private BigDecimal totalPrice;
 
     @Column(nullable = false)
     private String status;

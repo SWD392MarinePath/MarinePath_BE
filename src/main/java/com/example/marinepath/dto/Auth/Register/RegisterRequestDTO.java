@@ -1,7 +1,7 @@
 package com.example.marinepath.dto.Auth.Register;
 
-import com.example.marinepath.entity.Enum.AccountGenderEnum;
-import com.example.marinepath.entity.Enum.AccountRoleEnum;
+import com.example.marinepath.entity.Enum.Account.AccountGenderEnum;
+import com.example.marinepath.entity.Enum.Account.AccountRoleEnum;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

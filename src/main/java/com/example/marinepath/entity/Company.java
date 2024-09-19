@@ -9,26 +9,21 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "container")
-public class Container {
+@Table(name = "company")
+public class Company {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToOne
-    @JoinColumn(name = "port_id", nullable = false)
-    private Port port;
-
-    @ManyToOne
-    @JoinColumn(name = "order_id", nullable = false)
-    private Order order;
+    @Column(nullable = false)
+    private String name;
 
     @Column(nullable = false)
-    private Float weight;
+    private String contact;
 
     @Column(nullable = false)
-    private String status;
+    private String address;
 
     @Column(nullable = false)
     private Boolean isDeleted;
