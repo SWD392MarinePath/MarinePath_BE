@@ -1,6 +1,5 @@
 package com.example.marinepath.entity;
 
-import com.example.marinepath.entity.Enum.Account.AccountProviderEnum;
 import com.example.marinepath.entity.Enum.ContainerStatusEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -34,8 +33,8 @@ public class Container {
     @Column(name = "weight",nullable = false)
     private Float weight;
 
-    @Column(name = "status",nullable = false)
     @Enumerated(EnumType.STRING)
+    @Column(name = "status",nullable = false)
     private ContainerStatusEnum status;
 
     @Column(name = "is_deleted",nullable = false)

@@ -53,10 +53,11 @@ public class CustomAuthenticationSuccessHandler extends SimpleUrlAuthenticationS
                 account.setName((String) attributes.get("name"));
                 account.setPicture((String) attributes.get("picture"));
                 account.setGoogleId((String) attributes.get("sub"));
-                account.setRole(AccountRoleEnum.USER);
+                account.setRole(AccountRoleEnum.SCHEDULER);
                 account.setProvider(AccountProviderEnum.GOOGLE);
                 account.setStatus(AccountStatusEnum.VERIFIED);
                 account.setCreatedAt(LocalDateTime.now());
+                account.setIsDeleted(false);
                 accountRepository.save(account);
             } else {
                 account = existingAccount.get();

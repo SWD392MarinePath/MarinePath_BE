@@ -1,7 +1,5 @@
 package com.example.marinepath.entity;
 
-
-import com.example.marinepath.entity.Enum.Account.AccountStatusEnum;
 import com.example.marinepath.entity.Enum.OrderStatusEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

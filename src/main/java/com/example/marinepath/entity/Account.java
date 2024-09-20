@@ -38,8 +38,8 @@ public class Account implements UserDetails {
     @Column(name = "password")
     private String password;
 
-    @Column(name = "gender",nullable = true)
     @Enumerated(EnumType.STRING)
+    @Column(name = "gender",nullable = true)
     private AccountGenderEnum gender;
 
     @Column(name = "picture")
@@ -48,16 +48,16 @@ public class Account implements UserDetails {
     @Column(name = "google_id", unique = true)
     private String googleId;
 
-    @Column(name = "role",nullable = false)
     @Enumerated(EnumType.STRING)
+    @Column(name = "role",nullable = false)
     private AccountRoleEnum role;
 
-    @Column(name = "provider",nullable = false)
     @Enumerated(EnumType.STRING)
+    @Column(name = "provider",nullable = false)
     private AccountProviderEnum provider;
 
-    @Column(name = "status",nullable = false)
     @Enumerated(EnumType.STRING)
+    @Column(name = "status",nullable = false)
     private AccountStatusEnum status;
 
     @Column(name = "created_at", nullable = false)

@@ -27,8 +27,8 @@ public class Customer{
     @Column(name = "name")
     private String name;
 
-    @Column(name = "gender",nullable = true)
     @Enumerated(EnumType.STRING)
+    @Column(name = "gender",nullable = true)
     private CustomerGenderEnum gender;
 
     @Enumerated(EnumType.STRING)

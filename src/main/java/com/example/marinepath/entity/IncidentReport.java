@@ -29,7 +29,7 @@ public class IncidentReport {
     private LocalDateTime reportedAt;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "incident_report_status",nullable = false)
+    @Column(name = "status",nullable = false)
     private IncidentReportStatusEnum status;
 
     @Column(name = "is_deleted",nullable = false)

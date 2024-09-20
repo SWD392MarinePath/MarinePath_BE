@@ -69,6 +69,7 @@ public class AccountService {
         account.setRole(registerRequestDTO.getRole());
         account.setStatus(AccountStatusEnum.UNVERIFIED);
         account.setCreatedAt(LocalDateTime.now());
+        account.setIsDeleted(false);
         accountRepository.save(account);
 
         String verificationToken = jwtTokenUtil.generateToken(new org.springframework.security.core.userdetails.User(account.getEmail(), "", new ArrayList<>()));

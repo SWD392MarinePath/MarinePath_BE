@@ -1,5 +1,6 @@
 package com.example.marinepath.entity;
 
+import com.example.marinepath.entity.Enum.TransactionStatusEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -32,8 +33,9 @@ public class Transaction {
     @Column(name = "total_price",nullable = false)
     private BigDecimal totalPrice;
 
-    @Column(nullable = false)
-    private String status;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status",nullable = false)
+    private TransactionStatusEnum status;
 
     @Column(name = "is_deleted",nullable = false)
     private Boolean isDeleted;

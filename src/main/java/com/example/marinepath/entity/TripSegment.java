@@ -1,5 +1,6 @@
 package com.example.marinepath.entity;
 
+import com.example.marinepath.entity.Enum.Trip.TripSegmentStatusEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -35,6 +36,10 @@ public class TripSegment {
 
     @Column(name = "end_date", nullable = false)
     private LocalDateTime endDate;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status",nullable = false)
+    private TripSegmentStatusEnum status;
 
     @Column(name = "is_deleted",nullable = false)
     private Boolean isDeleted;
