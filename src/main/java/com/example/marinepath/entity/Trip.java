@@ -1,7 +1,6 @@
 package com.example.marinepath.entity;
 
-import com.example.marinepath.entity.Enum.Account.AccountRoleEnum;
-import com.example.marinepath.entity.Enum.TripStatusEnum;
+import com.example.marinepath.entity.Enum.Trip.TripStatusEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -33,13 +32,13 @@ public class Trip {
     )
     private Set<Staff> staff;
 
-    @Column(nullable = false)
+    @Column(name = "weight",nullable = false)
     private Float weight;
 
-    @Column(nullable = false)
+    @Column(name = "desciption",nullable = false)
     private String description;
 
-    @Column(nullable = false)
+    @Column(name = "container_count",nullable = false)
     private Integer containerCount;
 
     @Column(name = "start_date", nullable = false)
@@ -49,7 +48,7 @@ public class Trip {
     private LocalDateTime endDate;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
+    @Column(name = "status",nullable = false)
     private TripStatusEnum status;
 
     @Column(name = "created_at", nullable = false)
@@ -58,6 +57,6 @@ public class Trip {
     @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
 
-    @Column(nullable = false)
+    @Column(name = "is_deleted",nullable = false)
     private Boolean isDeleted;
 }

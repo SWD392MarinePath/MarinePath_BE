@@ -17,13 +17,13 @@ public class Port {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(nullable = false)
+    @Column(name = "name",nullable = false)
     private String name;
 
-    @Column(nullable = false)
+    @Column(name = "location",nullable = false)
     private String location;
 
-    @Column(nullable = false)
+    @Column(name = "capacity",nullable = false)
     private Integer capacity;
 
     @Column(name = "contact_info",nullable = false)

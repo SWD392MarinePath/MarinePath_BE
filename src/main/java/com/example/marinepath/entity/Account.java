@@ -26,43 +26,45 @@ public class Account implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @Email
-    @Column(unique = true, nullable = false)
+    @Column(name = "email",unique = true, nullable = false)
     private String email;
 
-    @Column
+    @Column(name = "name")
     private String name;
 
-    @Column
+    @Column(name = "password")
     private String password;
 
-    @Column(nullable = true)
+    @Column(name = "gender",nullable = true)
     @Enumerated(EnumType.STRING)
     private AccountGenderEnum gender;
 
-    @Column
+    @Column(name = "picture")
     private String picture;
 
-    @Column(unique = true)
+    @Column(name = "google_id", unique = true)
     private String googleId;
 
+    @Column(name = "role",nullable = false)
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
     private AccountRoleEnum role;
 
-    @Column(nullable = false)
+    @Column(name = "provider",nullable = false)
     @Enumerated(EnumType.STRING)
     private AccountProviderEnum provider;
 
-    @Column(nullable = false)
+    @Column(name = "status",nullable = false)
     @Enumerated(EnumType.STRING)
     private AccountStatusEnum status;
 
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
 
+    @Column(name = "is_deleted",nullable = false)
+    private Boolean isDeleted;
 
 @Transient
 @Override

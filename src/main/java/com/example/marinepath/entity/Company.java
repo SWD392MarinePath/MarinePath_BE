@@ -16,15 +16,15 @@ public class Company {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(nullable = false)
+    @Column(name = "name",nullable = false)
     private String name;
 
-    @Column(nullable = false)
+    @Column(name = "contact",nullable = false)
     private String contact;
 
-    @Column(nullable = false)
+    @Column(name = "address",nullable = false)
     private String address;
 
-    @Column(nullable = false)
+    @Column(name = "is_deleted",nullable = false)
     private Boolean isDeleted;
 }

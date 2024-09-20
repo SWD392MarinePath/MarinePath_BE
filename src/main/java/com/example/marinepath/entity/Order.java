@@ -1,6 +1,8 @@
 package com.example.marinepath.entity;
 
 
+import com.example.marinepath.entity.Enum.Account.AccountStatusEnum;
+import com.example.marinepath.entity.Enum.OrderStatusEnum;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,7 +14,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "orders")  // "order" is a reserved word in some SQL databases, so I used "orders"
+@Table(name = "orders")
 public class Order {
 
     @Id
@@ -27,15 +29,28 @@ public class Order {
     @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
 
-    @Column(nullable = false)
+    @Column(name = "departure",nullable = false)
+    private String departure;
+
+    @Column(name = "arrival",nullable = false)
+    private String arrival;
+
+    @Column(name = "requestDate",nullable = false)
+    private LocalDateTime requestDate;
+
+    @Column(name = "status",nullable = false)
+    @Enumerated(EnumType.STRING)
+    private OrderStatusEnum status;
+
+    @Column(name = "payment_detail",nullable = false)
+    private String PaymentDetail;
+
+    @Column(name = "issue_at",nullable = false)
     private LocalDateTime issuedAt;
 
-    @Column(nullable = false)
-    private String tripDetails;
-
-    @Column(nullable = false)
+    @Column(name = "expired_at",nullable = false)
     private LocalDateTime expiredAt;
 
-    @Column(nullable = false)
+    @Column(name = "is_deleted",nullable = false)
     private Boolean isDeleted;
 }

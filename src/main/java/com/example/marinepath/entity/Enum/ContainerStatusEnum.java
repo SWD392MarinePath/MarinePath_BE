@@ -1,7 +1,7 @@
 package com.example.marinepath.entity.Enum;
 
 public enum ContainerStatusEnum {
-    LOADED,       // Đã xếp hàng
-    UNLOADED,     // Đã dỡ hàng
-    IN_TRANSIT    // Đang vận chuyển
+    AT_ORIGIN_PORT, //Đang ở cảng xuất phát.
+    ON_VESSEL, //Đang trên tàu.
+    AT_DESTINATION_PORT, //Đã tới cảng đích.
 }

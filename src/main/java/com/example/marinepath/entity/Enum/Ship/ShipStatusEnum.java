@@ -1,4 +1,4 @@
-package com.example.marinepath.entity.Enum;
+package com.example.marinepath.entity.Enum.Ship;
 
 public enum ShipStatusEnum {
     DOCKED,        // Đang neo đậu

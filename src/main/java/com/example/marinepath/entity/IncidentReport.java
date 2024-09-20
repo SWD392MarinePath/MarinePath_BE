@@ -22,7 +22,7 @@ public class IncidentReport {
     @JoinColumn(name = "trip_id")
     private Trip trip;
 
-    @Column(nullable = false)
+    @Column(name = "description",nullable = false)
     private String description;
 
     @Column(name = "reported_at",nullable = false)

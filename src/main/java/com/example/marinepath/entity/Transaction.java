@@ -23,18 +23,18 @@ public class Transaction {
     @JoinColumn(name = "order_id", nullable = false)
     private Order order;
 
-    @Column(nullable = false)
+    @Column(name = "name",nullable = false)
     private String name;
 
-    @Column(nullable = false)
+    @Column(name = "issue_at",nullable = false)
     private LocalDateTime issuedAt;
 
-    @Column(nullable = false)
+    @Column(name = "total_price",nullable = false)
     private BigDecimal totalPrice;
 
     @Column(nullable = false)
     private String status;
 
-    @Column(nullable = false)
+    @Column(name = "is_deleted",nullable = false)
     private Boolean isDeleted;
 }

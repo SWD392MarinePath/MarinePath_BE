@@ -20,7 +20,7 @@ import java.util.Collections;
 @NoArgsConstructor
 @Entity
 @Table(name = "staff")
-public class Staff implements UserDetails {
+public class Staff{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,75 +30,31 @@ public class Staff implements UserDetails {
     @JoinColumn(name = "company_id", nullable = false)
     private Company company;
 
-
     @Email
-    @Column(unique = true, nullable = false)
+    @Column(name = "email",unique = true, nullable = false)
     private String email;
 
-    @Column
+    @Column(name = "name")
     private String name;
 
-    @Column
-    private String password;
-
-    @Column(nullable = true)
+    @Column(name = "gender",nullable = true)
     @Enumerated(EnumType.STRING)
     private StaffGenderEnum gender;
 
-    @Column
+    @Column(name = "picture",nullable = false)
     private String picture;
 
-    @Column(unique = true)
-    private String googleId;
-
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private StaffRoleEnum role;
+    @Column(name = "position",nullable = false)
+    private StaffRoleEnum position;
 
-    @Column(nullable = false)
-    @Enumerated(EnumType.STRING)
-    private StaffProviderEnum provider;
-
-    @Column(nullable = false)
+    @Column(name = "status",nullable = false)
     @Enumerated(EnumType.STRING)
     private StaffStatusEnum status;
 
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
 
-
-    @Transient
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Collections.singletonList(new SimpleGrantedAuthority("ROLE_" + this.role.name()));
-    }
-    @Transient
-    @Override
-    public String getUsername() {
-        return this.email;
-    }
-
-    @Transient
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-
-    @Transient
-    @Override
-    public boolean isAccountNonLocked() {
-        return this.status != StaffStatusEnum.BLOCKED;
-    }
-
-    @Transient
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    @Transient
-    @Override
-    public boolean isEnabled() {
-        return this.status == StaffStatusEnum.VERIFIED;
-    }
+    @Column(name = "is_deleted",nullable = false)
+    private Boolean isDeleted;
 }
